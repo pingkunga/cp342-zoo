@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>ThaiCreate.Com PHP & Oracle Tutorial</title>
+</head>
+<body>
+<?
+$objConnect = oci_connect("system","oracle","hrconn");
+if($objConnect)
+{
+echo "Oracle Server Connected";
+}
+else
+{
+echo "Can not connect to Oracle Server";
+}
+?>
+</body>
+</html>

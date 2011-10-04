@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>ThaiCreate.Com PHP & Oracle Tutorial</title>
+</head>
+<body>
+<?
+
+include("start.inc");
+connect_db();
+
+$strSQL = "SELECT * FROM CUSTOMER";
+$objParse = oci_parse ($objConnect, $strSQL);
+oci_execute ($objParse,OCI_DEFAULT);
+$intNumField = oci_num_fields($objParse);
+$i = 0;
+echo "<b>Table CUSTOMER have $intNumField Fields.</b><br>";
+for($i=1;$i<$intNumField;$i++)
+{
+echo $i."=".oci_field_name($objParse,$i)." (".oci_field_type($objParse,$i).")<br>";  
+}
+oci_close($objConnect);
+
+?>
+</body>
+</html>

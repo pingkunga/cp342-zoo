@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>updateEmployee</title>
+</head>
+<body>
+<?php
+	include("connectOrcl.php");
+	$query = "UPDATE ZOO_EMPLOYEES SET ";
+	//$query .="ANIMAL_ID = '".$_POST["txtAnimalID"]."' ";
+	$query .="FIRST_NAME = '".$_POST["txtFirstName"]."' ";
+	$query .=",LAST_NAME = '".$_POST["txtLastName"]."' ";
+	$query .=",EMP_DOB = '".$_POST["txtDate"]."' ";
+	$query .=",PHONE_NUMBER = '".$_POST["txtPhoneNum"]."' ";
+	$query .=",JOB_ID = '".$_POST["txtJob"]."' ";
+	$query .=",SALARY = '".$_POST["txtSalary"]."' ";
+	$query .="WHERE EMP_ID = '".$_GET["empID"]."' ";
+	
+	//echo "<pre>".$query;
+	//print_r($_POST);
+	
+	
+	
+	
+$objParse = oci_parse($conn, $query);
+$objExecute = oci_execute($objParse, OCI_DEFAULT);
+if($objExecute)
+{
+	oci_commit($conn); //*** Commit Transaction ***//
+	echo "Save Done.";
+	echo "<META HTTP-EQUIV=\"refresh\"  CONTENT=\"2;URL=showemp.php\" >";
+}
+else
+{
+	oci_rollback($conn); //*** RollBack Transaction ***//
+	echo "Error Save ".$query."";
+}
+oci_close($conn);
+?>
+</body>
+</html>
