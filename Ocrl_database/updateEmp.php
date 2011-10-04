@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>updateEmployee</title>
+</head><center>
+<body>
+<form action="saveUpdateEmp.php?empID=<?=$_GET["empID"];?>" name="frmEdit" method="post">
+<?
+	include("connectOrcl.php");
+	$query = oci_parse ($conn, "SELECT * FROM ZOO_EMPLOYEES NATURAL JOIN ZOO_JOBS WHERE EMP_ID = '".$_GET["empID"]."' ");
+	$SQLJobs = oci_parse ($conn, "SELECT * FROM ZOO_JOBS");
+
+	//execute SQL
+	oci_execute ($query,OCI_DEFAULT);
+	oci_execute ($SQLJobs,OCI_DEFAULT);
+	
+	$objResult = oci_fetch_array($query);
+
+	
+	if(!$objResult)
+	{
+		echo "Not found EmpID=".$_GET["empID"];
+	}
+	else
+	{
+?>
+<table width="400" border="1">
+		<tr>
+			<tr><th width="200"> <div align="center">ID </div></th><td><div align="center"><input type="text" name="txtEmpID" size="20" value="<?=$objResult["EMP_ID"];?>"></div></td></tr>
+
+			<tr><th width="200"> <div align="center">FIRST NAME </div></th><td><div align="center"><input type="text" name="txtFirstName" size="20" value="<?=$objResult["FIRST_NAME"];?>"></div></td></tr>
+
+			<tr><th width="200"> <div align="center">LAST NAME </div></th><td><div align="center"><input type="text" name="txtLastName" size="20" value="<?=$objResult["LAST_NAME"];?>"></div></td></tr>
+
+			<tr><th width="200"> <div align="center">DOB </div></th><td><div align="center"><input type="text" name="txtDate" size="20" value="<?=$objResult["EMP_DOB"];?>"></div></td></tr>
+
+			<tr><th width="200"> <div align="center">PHONE NUMBER </div></th><td><div align="center"><input type="text" name="txtPhoneNum" size="20" value="<?=$objResult["PHONE_NUMBER"];?>"></div></td></tr>
+<!-- -->
+			<tr><th width="200" > <div align="center">JOB </div></th><td><div align="center">
+			<select id="txtJob" name="txtJob" style="width:137px">
+			<?php
+				while($row = oci_fetch_array($SQLJobs,OCI_BOTH))
+				{
+			?>
+				<option value="<?=$row["JOB_ID"];?>" <?php echo ($row["JOB_ID"] == $objResult["JOB_ID"])?'selected="selected"':''?> ><?=$row["JOB_NAME"];?></option>
+			<?php
+				}
+			?>
+			</select>
+			</div></td></tr>
+<!-- -->
+			<tr><th width="200"> <div align="center">SALARY</div></th><td><div align="center"><input type="text" name="txtSalary" size="20" value="<?=$objResult["SALARY"];?>"></div></td></tr>
+		
+		</tr>
+  </table>
+  <input type="submit" name="submit" value="submit">
+  <?
+  }
+  oci_close($conn);
+  ?>
+  </form>
+</body></center>
+</html>

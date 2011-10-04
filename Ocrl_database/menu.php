@@ -1,0 +1,16 @@
+<html>
+<link rel ="stylesheet" href='stylesheet912.css' type="text/css">
+<body >
+<p class='two'>
+
+Menu...<br>
+
+<a href='animalzoo.php' target="show">1.ข้อมูลสัตว์ในสวนสัตว์</a><br/>
+<a href='history.php' target="show">2.ประวัติสวนสัตว์</a><br/>
+<a href='introani.php'>3.สัตว์ที่แนะนำ</a></p><br><br><br><br>
+<a href='Employee.php' target="show">4.เฉพาะเจ้าหน้าที่</a><br>
+<br>
+
+</form>
+</body>
+</html>

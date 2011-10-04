@@ -1,0 +1,133 @@
+<style type="text/css">
+
+
+body{
+background-color:#d0e4fe;
+}
+
+div.ex
+{
+width:5oopx;
+padding:10px;
+border:5px solid #5F9EA0;
+margin:0px;
+width:600px;
+background-color:#B0E0E6;
+
+}
+
+/* ----------- My Form ----------- */
+p.one 
+{
+border-style:solid;
+border-width:5px;
+width:550px;
+
+
+font-weight:Bold;
+background-color:#778899;
+border:5px solid #F0FFF0;
+
+}
+p.two 
+{
+border-style:solid;
+border-width:medium;
+width:160px;
+background-color:#FFCC99;
+border:5px solid #FF6A6A;
+}
+p.three
+{
+border-style:solid;
+border-width:1px;
+width:300px;
+background-color:#BEBEBE;
+color:#F0F8FF;
+
+}/* ----------- kom nod size of pic----------- */
+
+.thumbnail 
+{
+float:left;
+width:110px;
+height:100px;
+margin:5px;
+}
+.text_line
+{
+clear:both;
+margin-bottom:2px;
+}
+/* ----------- box massege right ----------- */
+.right
+{
+position:absolute;
+right:0px;
+width:300px;
+background-color:#FFE4E1;
+}
+
+/* ----------- kom non toa fisrt big or narmal ----------- */
+p:first-line 
+{
+color:#FF4040;
+font-variant:small-caps;
+}/*
+p:first-letter 
+{
+color:#FF4040;
+font-size:xx-large;
+}*/
+/* ----------- My link pic ----------- */
+div.img
+{
+  margin: 2px;
+  border: 1px solid #0000ff;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+}	
+div.img img
+{
+  display: inline;
+  margin: 3px;
+  border: 1px solid #ffffff;
+}
+div.img a:hover img {border: 1px solid #0000ff;}
+div.desc
+{
+  text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 2px;
+}
+
+/*------------------------text point--------------------*/
+h1 {text-align:center;}
+p.date {text-align:right;}
+p.main {text-align:justify;}
+
+/*------------------------comment--------------------
+p.comment
+{
+border-style:solid;
+border-top-width:15px;
+}
+*/
+/*------------------------frame--------------------
+p 
+{
+border-style:solid;
+}
+p.none {border-top-style:none;}
+p.dotted {border-top-style:dotted;}
+p.dashed {border-top-style:dashed;}
+p.solid {border-top-style:solid;}
+p.double {border-top-style:double;}
+p.groove {border-top-style:groove;}
+p.ridge {border-top-style:ridge;}
+p.inset {border-top-style:inset;}
+p.outset {border-top-style:outset;}*/
+</style>

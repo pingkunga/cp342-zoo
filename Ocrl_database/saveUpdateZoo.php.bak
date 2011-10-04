@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>updateAmimal</title>
+</head>
+<body>
+<?php
+	include("connectOrcl.php");
+	$query = "UPDATE ANIMAL SET ";
+	$query .="ANIMAL_ID = '".$_POST["txtAnimalID"]."' ";
+	$query .=",ANIMAL_NAME = '".$_POST["txtName"]."' ";
+	$query .=",ANIMAL_DOB = '".$_POST["txtDate"]."' ";
+	$query .=",ID_FATHER = '".$_POST["txtFather"]."' ";
+	$query .=",ID_MOTHER = '".$_POST["txtMather"]."' ";
+	$query .=",ANI_TYPE_ID = '".$_POST["txtType"]."' ";
+	$query .=",ANI_GENDER = '".$_POST["txtGender"]."' ";
+	$query .=",ZONE_ID = '".$_POST["txtZone"]."' ";
+	$query .=",ANI_SPECIES_ID = '".$_POST["txtSpecies"]."' ";
+	$query .=",ANI_PIC = '".$_POST["txtpic"]."' ";
+	$query .="WHERE ANIMAL_ID = '".$_GET["aniID"]."' ";
+	
+	echo "<pre>".$query;
+	print_r($_POST);
+	
+	
+	
+	
+$objParse = oci_parse($conn, $query);
+$objExecute = oci_execute($objParse, OCI_DEFAULT);
+if($objExecute)
+{
+	oci_commit($conn); //*** Commit Transaction ***//
+	echo "Save Done.";
+	echo "<META HTTP-EQUIV=\"refresh\"  CONTENT=\"2;URL=fromedit.php\" >";
+
+}
+else
+{
+	oci_rollback($conn); //*** RollBack Transaction ***//
+	echo "Error Save ".$query."";
+}
+oci_close($conn);
+?>
+</body>
+</html>
